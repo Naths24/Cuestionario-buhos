@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados del Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados del Quiz</h1>
+        <p id="resultText"></p>
+        <button onclick="window.location.href='quiz.html'">Volver a tomar el Quiz</button>
+        <button onclick="window.location.href='Introducción.html'">Volver a la página de Inicio</button>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substr(1).split("&").forEach(function(item) {
+                const [key, value] = item.split("=");
+                params[key] = decodeURIComponent(value);
+            });
+            return params;
+        }
+
+        const params = getQueryParams();
+        const score = params.score;
+        document.getElementById('resultText').textContent = `Tuviste ${score} aciertos de 5.`;
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Búhos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Quiz sobre Búhos</h1>
+        <form id="quizForm">
+            <div class="question">
+                <p>1. ¿Cómo utilizan los búhos su audición para cazar presas en la oscuridad?</p>
+                <label><input type="radio" name="q1" value="a"> a) Localizan a sus presas usando solo la vista.</label><br>
+                <label><input type="radio" name="q1" value="b"> b) Emplean su agudo sentido del oído para detectar movimientos y sonidos de sus presas.</label><br>
+                <label><input type="radio" name="q1" value="c"> c) Utilizan la ecolocación como los murciélagos.</label><br>
+                <label><input type="radio" name="q1" value="d"> d) Dependen del olfato para encontrar a sus presas.</label><br>
+            </div>
+
+            <div class="question">
+                <p>2. ¿Qué adaptaciones fisiológicas permiten a los búhos girar su cabeza casi 270 grados?</p>
+                <label><input type="radio" name="q2" value="a"> a) Tienen vértebras adicionales en su columna.</label><br>
+                <label><input type="radio" name="q2" value="b"> b) Poseen un cuello elástico.</label><br>
+                <label><input type="radio" name="q2" value="c"> c) Tienen vasos sanguíneos adaptados que permiten el flujo de sangre incluso cuando giran la cabeza.</label><br>
+                <label><input type="radio" name="q2" value="d"> d) Sus ojos están completamente inmóviles.</label><br>
+            </div>
+
+            <div class="question">
+                <p>3. ¿Cuáles son algunas diferencias clave entre las distintas especies de búhos en términos de hábitat y dieta?</p>
+                <label><input type="radio" name="q3" value="a"> a) Todos los búhos viven en bosques y se alimentan de insectos.</label><br>
+                <label><input type="radio" name="q3" value="b"> b) Algunas especies viven en desiertos y cazan reptiles, mientras que otras habitan en bosques y se alimentan de pequeños mamíferos.</label><br>
+                <label><input type="radio" name="q3" value="c"> c) Todas las especies de búhos viven cerca de cuerpos de agua y se alimentan de peces.</label><br>
+                <label><input type="radio" name="q3" value="d"> d) Los búhos de las zonas árticas solo comen plantas.</label><br>
+            </div>
+
+            <div class="question">
+                <p>4. ¿Qué papel juegan los búhos en los ecosistemas y cómo afectan las poblaciones de sus presas?</p>
+                <label><input type="radio" name="q4" value="a"> a) No tienen impacto significativo en sus ecosistemas.</label><br>
+                <label><input type="radio" name="q4" value="b"> b) Son presas de otros animales y no influyen en las poblaciones de sus presas.</label><br>
+                <label><input type="radio" name="q4" value="c"> c) Son depredadores clave que ayudan a controlar las poblaciones de pequeños mamíferos y otras presas.</label><br>
+                <label><input type="radio" name="q4" value="d"> d) Sólo afectan el ecosistema cuando están en grandes números.</label><br>
+            </div>
+
+            <div class="question">
+                <p>5. ¿Cuál es la esperanza de vida promedio de un búho en estado salvaje?</p>
+                <label><input type="radio" name="q5" value="a"> a) 1-2 años.</label><br>
+                <label><input type="radio" name="q5" value="b"> b) 5-10 años.</label><br>
+                <label><input type="radio" name="q5" value="c"> c) 15-20 años.</label><br>
+                <label><input type="radio" name="q5" value="d"> d) 25-30 años.</label><br>
+            </div>
+
+            <button type="button" onclick="calculateScore()">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        function calculateScore() {
+            const answers = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'b',
+                q4: 'c',
+                q5: 'b'
+            };
+            let score = 0;
+            for (let question in answers) {
+                const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                if (userAnswer && userAnswer.value === answers[question]) {
+                    score++;
+                }
+            }
+            window.location.href = `Resultados.html?score=${score}`;
+        }
+    </script>
+</body>
+</html>
